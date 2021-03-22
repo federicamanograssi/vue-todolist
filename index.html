@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- -------BOOSTRAP------- -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- --------------JS---------------- -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+    <!-- ------ FONT -------- -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- -------------STYLE----------- -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Todolist Vue</title>
+</head>
+
+<body>
+    <div id="root" class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center padding_10">
+                <img id="logo" src="https://www.boolean.careers/images/misc/logo.png" alt="logo boolean" >
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 padding_10 text-center">
+                <input v-model="newItem" @keyup.enter="addItem()" type="text" placeholder="Aggiungi nuovo elemento ..." >
+                <button @click="addItem(index)">Aggiungi</button>
+            </div>
+        </div>
+        <div class="row">
+            <div id="box_item" class="col-xs-12 padding_10">
+                <ul v-if ="itemArray.length > 0">
+                    <li v-for ="(item, index) in itemArray">
+                        <p>{{itemArray[index]}}</p>
+                        <span class="cliccable" @click="removeItem(index)"><i class="fas fa-times"></i></span>
+                    </li>
+                </ul>
+                <p v-else>Non ci sono elementi nella lista</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
